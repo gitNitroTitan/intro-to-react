@@ -1,14 +1,12 @@
-import { useState } from 'react';
+import Counter from '../components/counter';
 
 function Home() {
-  const [value, setValue] = useState(0);
+  const counters = [{ title: 'Counter 1' }, { title: 'Counter 2' }, { title: 'Counter 3' }, { title: 'Counter 4' }, { title: 'Counter 5' }];
   return (
     <>
-      <h1>Counter</h1>
-      <h2>{value}</h2>
-      <button type="button" onClick={() => setValue(((prevState) => prevState + 1))}>Increment</button>
-      <button type="button" onClick={() => setValue(((prevState) => prevState - 1))}>Decrement</button>
-      <button type="button" onClick={() => setValue(0)}>Reset</button>
+      {counters.map((counter) => (
+        <Counter key={counter.title} title={counter.title} />
+      ))}
     </>
   );
 }
